@@ -39,6 +39,10 @@ Features
 - Search users
 - Create post
 
+Update Features
+
+- Edit your profile (Bio)
+
 ### The Core Team
 
 - <a href="https://github.com/Oqilbek2121">To'lqinov Oqilbek</a><br>

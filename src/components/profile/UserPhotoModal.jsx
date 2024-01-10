@@ -8,6 +8,7 @@ import UserPhotoModalComments from "./UserPhotoModalComments";
 import React, { useEffect, useState, useContext } from "react";
 import { getStorage, ref, deleteObject } from "firebase/storage";
 import { deletePhotoByDocId, getPhotosByPhotoId, getUserByUserId } from "../../services/firebase";
+import usePhotos from "../../hooks/usePhotos";
 
 const style = {
   position: 'absolute',
@@ -22,6 +23,7 @@ const style = {
 const UserPhotoModal = ({ setOpen, photo }) => {
   const [post, setPost] = useState();
   const [user, setUser] = useState({});
+  const photos = usePhotos((state) => state.photos);
   const { user: currentUser } = useContext(UserContext);
   const { getProfileInfoAndPhotos } = useContext(UserProfileContext);
 
@@ -80,7 +82,11 @@ const UserPhotoModal = ({ setOpen, photo }) => {
               <h3>{user.username}</h3>
             </div>
             <div className="close d-flex">
-              <button className="btn btn-danger me-2" onClick={deletePost}><ion-icon name="trash-outline"></ion-icon></button>
+              {user?.uid === photo.uid &&(
+                <>
+                  <button className="btn btn-danger me-2" onClick={deletePost}><ion-icon name="trash-outline"></ion-icon></button>
+                </>
+              )}
               <button className="btn btn-primary d-flex align-items-center fs-3" onClick={() => setOpen(false)}><ion-icon name="close-outline"></ion-icon></button>
             </div>
           </div>

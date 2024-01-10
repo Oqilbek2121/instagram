@@ -64,7 +64,7 @@ const SignUp = () => {
   };
 
   useEffect(() => {
-    document.title = "Instagram";
+    document.title = "Sigup - Instagram";
   }, []);
 
   return (

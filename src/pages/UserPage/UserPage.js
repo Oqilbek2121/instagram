@@ -24,6 +24,10 @@ const UserPage = () => {
         checkUserExists();
     }, [username, navigate]);
 
+    useEffect(() => {
+        document.title = "Profile - Instagram";
+      }, []);
+
     return user ? (
         <div className="container w-100 h-100">
             <UserProfile user={user} />

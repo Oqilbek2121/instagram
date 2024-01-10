@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useUser from "../../hooks/useUser";
 
 const Timeline = React.lazy(() => import("../../components/Timeline"));
@@ -7,6 +7,10 @@ const Sidebar = React.lazy(() => import("../../components/Sidebar/index"));
 
 const HomePage = () => {
   const { user: { fullName, username, avatarSrc } } = useUser();
+
+  useEffect(() => {
+    document.title = "My_Instagram || T.Oqilbek";
+  }, []);
 
   return (
     <div className="home d-flex justify-content-around">

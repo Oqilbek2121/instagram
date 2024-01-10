@@ -1,8 +1,6 @@
 import useUser from "../../hooks/useUser";
 import Skeleton from "react-loading-skeleton";
-import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { EDIT_PROFILE } from "../../constants/routes";
 import { isUserFollowingProfile, toggleFollow } from "../../services/firebase";
 
 const Header = ({
@@ -14,6 +12,7 @@ const Header = ({
     docId: profileDocId,
     userId: profileUserId,
     fullName,
+    aboutMe,
     followers,
     following,
     username: profileUsername,
@@ -21,7 +20,6 @@ const Header = ({
   },
 }) => {
   const { user } = useUser();
-  const portal = useNavigate();
   const [isFollowingProfile, setIsFollowingProfile] = useState(false);
   const activeBtnFollow = user.username && user.username !== profileUsername;
 
@@ -82,7 +80,7 @@ const Header = ({
                 </button>
               )}
             </div>
-            <p className="bio">{currentUser.aboutMe}</p>
+            <p className="bio">{aboutMe}</p>
           </div>
         </div>
       </div>

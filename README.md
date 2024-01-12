@@ -6,8 +6,36 @@ My Instagram App
 [Live Demo](https://my-instagram-tapp.netlify.app)
 
 ## Result
+- The design of the My Instagram App includes:
 
-<img src="./src/img/instagram.png" />
+    - You can see these are the sign up, log in, main, search and profile pages.
+<table>
+    <tr>
+        <td>
+            <img src="./src/img/instagramsignup.png" />
+        </td>
+        <td>
+            <img src="./src/img/instagramlogin.png" />
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td>
+            <img src="./src/img/instagram.png" />
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td>
+            <img src="./src/img/instagram1.png" />
+        </td>
+        <td>
+            <img src="./src/img/instagram2.png" />
+        </td>
+    </tr>
+</table>
 
 ## Installation
 

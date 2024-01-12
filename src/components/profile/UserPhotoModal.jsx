@@ -38,7 +38,11 @@ const UserPhotoModal = ({ setOpen, photo }) => {
   };
 
   const deletePost = async () => {
-    alert("Are you delete this picture");
+    if (photo.userId !== currentUser.uid) {
+      alert("You don't have permission to delete this post.");
+      return;
+    }  
+    alert("Are you delete this picture")
     await deletePhotoByDocId(photo.docId);
     const storageRef = storage.refFromURL(photo.imageSrc);
     const fullPath = storageRef.fullPath;

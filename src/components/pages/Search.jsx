@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const SearchUser = React.lazy(() => import("./SearchUser"));
 
 const Search = () => {
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    document.title = "Search || Instagram";
+  }, []);
 
   return (
     <div className="container w-100 h-100">

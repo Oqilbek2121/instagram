@@ -64,7 +64,7 @@ const SignUp = () => {
   };
 
   useEffect(() => {
-    document.title = "Instagram";
+    document.title = "Signup || Instagram";
   }, []);
 
   return (
@@ -112,12 +112,6 @@ const SignUp = () => {
                         <button type="submit" className="btn btn-primary w-100 mb-3" onClick={handleSubmit}>Sign Up</button>
                       </>
                   )}
-                  {/* <div className="d-flex justify-content-between">
-                      <p className="w-50 ms-3 me-3"><hr /></p>
-                      <p>Or</p>
-                      <p className="w-50 ms-3 me-3"><hr /></p>
-                  </div>
-                  <button type="button" className="btn btn-outline-primary text-light w-100 d-flex align-items-center justify-content-center"><span className="me-2 mt-1"><ion-icon name="logo-google"></ion-icon></span>Sign Up with Google</button> */}
               </form>
               <div className="fixed-bottom">
                   <hr />

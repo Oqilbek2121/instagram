@@ -25,7 +25,7 @@ const ForgotPassword = () => {
   };
 
   useEffect(() => {
-    document.title = "Forgot Password - Instagram";
+    document.title = "Reset Password - Instagram";
   }, []);
 
   return (

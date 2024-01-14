@@ -1,15 +1,17 @@
-import "./style.css";
 import { v4 as uuidv4 } from "uuid";
 import React, { useState } from "react";
+import { HOME } from "../../constants/routes";
 import useUser from "../../hooks/useUser";
 import { storage } from "../../lib/firebase";
 import { EMOJISCHAR } from "../../helpers/Emojis";
 import { addPostToFirestore } from "../../services/firebase";
+import { useNavigate } from "react-router-dom";
 
 const ConfirmCreatePost = ({ image }) => {
   const {
     user: { username, userId },
   } = useUser();
+  const portal = useNavigate();
   const [caption, setCaption] = useState("");
   const [loading, setLoading] = useState(0);
   const imageSrc = URL.createObjectURL(image);
@@ -39,7 +41,7 @@ const ConfirmCreatePost = ({ image }) => {
             );
             setLoading(0);
             alert("image succesfully uploaded");
-            window.location.reload();
+            portal(HOME);
             console.clear(imageUrl);
             console.clear(photo);
           });

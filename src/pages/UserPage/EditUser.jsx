@@ -12,6 +12,7 @@ const EditUserPage = () => {
   const [email, setEmail] = useState("");
   const { user } = useContext(UserContext);
   const [fullname, setFullname] = useState("");
+  const [aboutMe, setAboutMe] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -23,6 +24,7 @@ const EditUserPage = () => {
       setFullname(currentUser.fullName);
       setUsername(currentUser.username);
       setEmail(currentUser.email);
+      setAboutMe(currentUser.aboutMe);
     }
   }, [currentUser]);
 
@@ -43,7 +45,7 @@ const EditUserPage = () => {
       await updatePassword(auth.currentUser, password);
     }
 
-    await updateUser(email, username, fullname, currentUser.docId);
+    await updateUser(email, username, aboutMe, fullname, currentUser.docId);
     setLoading(false);
     alert("Profile was sucessfully uploaded!");
   };
@@ -81,6 +83,10 @@ const EditUserPage = () => {
     e.target.value = null;
   };
 
+  useEffect(() => {
+    document.title = "Settings || Instagram";
+  }, []);
+
   return (
     <>
       <div className="container w-100 h-100">
@@ -114,6 +120,12 @@ const EditUserPage = () => {
             <div class="form-floating w-50 m-2">
               <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" class="form-control bg-transparent text-light w-100" id="floatingPassword" placeholder="Password" />
               <label for="floatingPassword">New Password</label>
+            </div>
+          </div>
+          <div className="d-flex justify-content-center align-items-center m-4">
+            <div class="form-floating w-100">
+              <textarea value={aboutMe} onChange={(e) => setAboutMe(e.target.value)}  style={{width: "100%", height: "150px"}} class="form-control bg-transparent text-light" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+              <label for="floatingTextarea2">Profile Bio</label>
             </div>
           </div>
           <div className="d-flex justify-content-center align-items-center mb-4">

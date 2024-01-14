@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const UploadImage = React.lazy(() => import("./UploadImage"));
 const ConfirmCreatePost = React.lazy(() => import("./ConfirmCreatePost"));
@@ -13,6 +13,10 @@ const CreatePost = () => {
         setImage(event.target.files[0]);
         setConfirmModal(true);
     };
+
+    useEffect(() => {
+      document.title = "Create Post || Instagram";
+    }, []);
 
     return (
       <>
